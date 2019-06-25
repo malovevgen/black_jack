@@ -1,0 +1,391 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"curre",
+				"current_command"
+			],
+			[
+				"all",
+				"all_commands"
+			],
+			[
+				"menu_",
+				"menu_with_exit"
+			],
+			[
+				"b",
+				"begin\tbegin … rescue … end"
+			],
+			[
+				"to",
+				"to_i"
+			],
+			[
+				"co",
+				"command"
+			],
+			[
+				"Добавить_",
+				"Добавить_в_вагон"
+			],
+			[
+				"Просмотреть_",
+				"Просмотреть_лист_станции"
+			],
+			[
+				"trains",
+				"trains_with_block"
+			],
+			[
+				"st",
+				"stations_info"
+			],
+			[
+				"free",
+				"free_volume"
+			],
+			[
+				"load",
+				"load_volume"
+			],
+			[
+				"ва",
+				"вагона"
+			],
+			[
+				"enter",
+				"enter_number"
+			],
+			[
+				"each",
+				"each_with_index"
+			],
+			[
+				"на",
+				"название"
+			],
+			[
+				"wa",
+				"wagons"
+			],
+			[
+				"choose",
+				"choose_train"
+			],
+			[
+				"cu",
+				"current_train"
+			],
+			[
+				"n",
+				"number"
+			],
+			[
+				"curr",
+				"current_route"
+			],
+			[
+				"current_",
+				"current_train"
+			],
+			[
+				"in",
+				"interval"
+			],
+			[
+				"la",
+				"lastnum"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 136.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/eugene/projects/intro/metaprogramming/instance_counter.rb",
+		"/home/eugene/projects/intro/metaprogramming/accessors.rb",
+		"/home/eugene/projects/intro/metaprogramming/train.rb",
+		"/home/eugene/projects/intro/metaprogramming/passenger_train.rb",
+		"/home/eugene/projects/intro/metaprogramming/cargo_train.rb",
+		"/home/eugene/projects/intro/metaprogramming/validation.rb",
+		"/home/eugene/projects/intro/metaprogramming/controller.rb",
+		"/home/eugene/projects/intro/metaprogramming/validation/presence_validator.rb",
+		"/home/eugene/projects/intro/metaprogramming/validation/type_validator.rb",
+		"/home/eugene/projects/intro/metaprogramming/validation/validator.rb",
+		"/home/eugene/projects/intro/metaprogramming/main.rb",
+		"/home/eugene/projects/intro/metaprogramming/validation/format_validator.rb",
+		"/home/eugene/projects/intro/metaprogramming/accessor.rb",
+		"/home/eugene/projects/intro/rubystyle/passenger_wagon.rb",
+		"/home/eugene/projects/intro/rubystyle/passenger_train.rb",
+		"/home/eugene/projects/intro/rubystyle/instance_counter.rb",
+		"/home/eugene/projects/intro/rubystyle/manufacturer.rb",
+		"/home/eugene/projects/intro/rubystyle/.rubocop.yml",
+		"/home/eugene/projects/intro/rubystyle/controller.rb",
+		"/home/eugene/projects/intro/rubystyle/cargo_wagon.rb",
+		"/home/eugene/projects/intro/rubystyle/route.rb",
+		"/home/eugene/projects/intro/rubystyle/station.rb",
+		"/home/eugene/projects/intro/rubystyle/train.rb",
+		"/home/eugene/projects/intro/rubystyle/wagon.rb",
+		"/home/eugene/projects/intro/rubystyle/valid.rb",
+		"/home/eugene/projects/intro/rubystyle/train_methods.rb",
+		"/home/eugene/projects/intro/rubystyle/wagon_methods.rb",
+		"/home/eugene/projects/intro/rubystyle/route_methods.rb",
+		"/home/eugene/projects/intro/rubystyle/all_class_methods.rb",
+		"/home/eugene/projects/intro/rubystyle/cargo_train.rb",
+		"/home/eugene/projects/intro/blocks/instance_counter.rb",
+		"/home/eugene/projects/intro/blocks/passenger_train.rb",
+		"/home/eugene/projects/intro/blocks/controller.rb",
+		"/home/eugene/projects/intro/blocks/train.rb",
+		"/home/eugene/projects/intro/blocks/wagon.rb",
+		"/home/eugene/projects/intro/blocks/valid.rb",
+		"/home/eugene/projects/intro/blocks/station.rb",
+		"/home/eugene/projects/intro/blocks/passenger_wagon.rb",
+		"/home/eugene/projects/intro/blocks/cargo_wagon.rb",
+		"/home/eugene/projects/intro/blocks/filling.rb",
+		"/home/eugene/.config/sublime-text-3/Packages/RuboCop/RuboCop.sublime-settings",
+		"/home/eugene/projects/intro/blocks/.rubocop.yml",
+		"/home/eugene/.config/sublime-text-3/Packages/User/RuboCop.sublime-settings",
+		"/home/eugene/projects/intro/exceptions/wagon.rb",
+		"/home/eugene/projects/intro/exceptions/station.rb",
+		"/home/eugene/projects/intro/exceptions/route.rb",
+		"/home/eugene/projects/intro/exceptions/train.rb",
+		"/home/eugene/projects/intro/exceptions/valid.rb",
+		"/home/eugene/projects/intro/methods/route.rb",
+		"/home/eugene/projects/intro/methods/controller.rb",
+		"/home/eugene/projects/intro/exceptions/passenger_train.rb",
+		"/home/eugene/projects/intro/exceptions/passenger_wagon.rb",
+		"/home/eugene/projects/intro/exceptions/instance_counter.rb",
+		"/home/eugene/projects/intro/exceptions/manufacturer.rb",
+		"/home/eugene/projects/intro/exceptions/main.rb",
+		"/home/eugene/projects/intro/methods/train.rb",
+		"/home/eugene/projects/intro/exceptions/controller.rb",
+		"/home/eugene/projects/intro/exceptions/cargo_wagon.rb",
+		"/home/eugene/projects/intro/methods/manufacturer.rb",
+		"/home/eugene/projects/intro/exseptions/cargo_wagon.rb",
+		"/home/eugene/projects/intro/exseptions/main.rb",
+		"/home/eugene/projects/intro/exseptions/passenger_train.rb",
+		"/home/eugene/projects/intro/exseptions/passenger_wagon.rb",
+		"/home/eugene/projects/intro/exseptions/route.rb",
+		"/home/eugene/projects/intro/exseptions/train.rb",
+		"/home/eugene/projects/intro/exseptions/controller.rb",
+		"/home/eugene/projects/intro/exseptions/station.rb",
+		"/home/eugene/projects/intro/exseptions/wagon.rb",
+		"/home/eugene/projects/intro/exseptions/cargo_train.rb",
+		"/home/eugene/projects/intro/methods/wagon.rb",
+		"/home/eugene/projects/intro/methods/instance_counter.rb",
+		"/home/eugene/projects/intro/methods/main.rb",
+		"/home/eugene/projects/intro/methods/station.rb",
+		"/home/eugene/projects/intro/methods/passenger_wagon.rb",
+		"/home/eugene/projects/intro/methods/passenger_train.rb",
+		"/home/eugene/projects/intro/methods/cargo_wagon.rb",
+		"/home/eugene/projects/intro/methods/cargo_train.rb",
+		"/home/eugene/projects/intro/lesson_2/fibon.rb",
+		"/home/eugene/projects/intro/lesson_2/arraynum.rb",
+		"/home/eugene/projects/intro/lesson_2/purchases.rb",
+		"/home/eugene/projects/intro/interfaces/controller.rb",
+		"/home/eugene/projects/intro/interfaces/passenger_train.rb",
+		"/home/eugene/projects/intro/interfaces/cargo_train.rb",
+		"/home/eugene/projects/intro/interfaces/route.rb",
+		"/home/eugene/projects/intro/interfaces/main.rb",
+		"/home/eugene/projects/intro/interfaces/wagon.rb",
+		"/home/eugene/projects/intro/interfaces/station.rb",
+		"/home/eugene/projects/intro/interfaces/train.rb",
+		"/home/eugene/Документы/lesson5interfaces/lesson5prog.rb",
+		"/home/eugene/projects/intro/interfases/cargo_train.rb",
+		"/home/eugene/projects/intro/interfases/train.rb",
+		"/home/eugene/projects/intro/interfases/passenger_wagon.rb",
+		"/home/eugene/projects/intro/interfases/station.rb",
+		"/home/eugene/projects/intro/interfases/route.rb",
+		"/home/eugene/projects/intro/interfases/wagon.rb",
+		"/home/eugene/projects/intro/interfases/main2.rb",
+		"/home/eugene/projects/intro/interfases/cargo_wagon.rb",
+		"/home/eugene/projects/intro/interfases/main.rb",
+		"/home/eugene/projects/intro/interfases/cargotrain.rb",
+		"/home/eugene/projects/intro/interfases/CargoVagon.rb",
+		"/home/eugene/projects/intro/interfases/Vagon.rb",
+		"/home/eugene/projects/intro/interfases/PassengerVagon.rb",
+		"/home/eugene/projects/intro/OOP/train.rb",
+		"/home/eugene/projects/intro/OOP/station.rb",
+		"/home/eugene/projects/intro/OOP/oop.rb",
+		"/home/eugene/projects/intro/OOP/route.rb",
+		"/home/eugene/projects/intro/OOP/rout.rb",
+		"/home/eugene/projects/intro/lesson_1/triangl.rb",
+		"/home/eugene/projects/intro/lesson_1/right_triangle.rb",
+		"/home/eugene/projects/intro/lesson_2/days.rb",
+		"/home/eugene/projects/intro/spam/train1.rb",
+		"/home/eugene/projects/intro/lesson_2/cycle_with_condition.rb",
+		"/home/eugene/projects/intro/lesson_1/quadratic_equation.rb",
+		"/home/eugene/projects/intro/lesson_2/month.rb",
+		"/home/eugene/projects/intro/lesson_2/vowels.rb",
+		"/home/eugene/projects/intro/lesson_2/building",
+		"/home/eugene/projects/intro/lesson_1/idealweight.rb",
+		"/home/eugene/Документы/github/git_tutorial/work/hello/hello.html",
+		"/home/eugene/projects/newfolder/square equation root.rb",
+		"/home/eugene/projects/intro/lesson_1/quadratic_equation",
+		"/home/eugene/projects/roots.rb",
+		"/home/eugene/idealweight.rb",
+		"/home/eugene/triangl.rb"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "dealer.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 269.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
