@@ -5,24 +5,35 @@ class Controller
     @dealer = Dealer.new
     @money = Money.new
     @desk = Desk.new
+    @interface = Interface.new
+    @user = User.new
   end
 
   def enter_user_name
     puts 'Введите свое имя'
     name = gets.chomp.capitalize
-    @user = User.new(name)
+    @user.name = name
     puts "Привет, #{name}, сыграем? Ставим по #{@money.bet}"
   end
 
-  def puts_user_cards
+  def user_cards
     @user.cards << @desk.cards.shift(2)
     puts 'Ваши карты:'
     @user.cards.map do |card|
       card.map do |item|
-        print "#{item[0]} #{item[1]}"
+        puts "#{item[0]} #{item[1]}"
       end
     end
-    puts 'Господа, ставки сделаны!'
+  end
+
+  def dealer_cards
+    @dealer.cards << @desk.cards.shift(2)
+    puts 'Карты дилера:'
+    @dealer.cards.map do |card|
+      card.map do |item|
+        puts '*'
+      end
+    end
   end
 
   def start
@@ -31,6 +42,7 @@ class Controller
   end
 
   def distribution
-    puts_user_cards
+    user_cards
+    dealer_cards
   end
 end

@@ -1,16 +1,11 @@
-class User
-  attr_accessor :name, :cards, :points
+class User < Player
+  attr_accessor :name
 
-  def initialize(name)
-    @cards = []
-    @points = 0
-    @name = name
+  def initialize
+    super
   end
 
   def type
     @type = 'user'
   end
-  # def assign_name(name)
-  #   @name = name
-  # end
 end

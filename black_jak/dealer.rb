@@ -1,8 +1,9 @@
-class Dealer
-  attr_accessor :cards, :points
-
+class Dealer  < Player
   def initialize
-    @cards = []
-    @points = 0
+    super
+  end
+
+  def type
+    @type = 'player'
   end
 end
