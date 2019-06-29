@@ -1,4 +1,4 @@
-class Cards
+class Desk
   attr_accessor :cards
 
   def initialize
@@ -7,7 +7,7 @@ class Cards
     @cards = suit.product(value).shuffle
   end
 
-  def deal_card
-    @cards.shift
-  end
+#  def deal_card
+#    @cards.shift
+#  end
 end
