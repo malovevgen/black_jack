@@ -6,11 +6,11 @@ class Interface
     puts "Привет, #{name}, сыграем?"
   end
 
-  def puts_cards
-    puts 'Ваши карты:'
-    controller.user.cards.map do |card|
-      card.map do |item|
-        print "#{item[0]} #{item[1]}"
+  def puts_cards(array)
+    puts 'Ваши карты'
+    array.map do |items|
+      items.map do |item|
+        puts "#{item[0]} #{item[1]}"
       end
     end
   end

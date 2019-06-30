@@ -4,6 +4,6 @@ class Dealer  < Player
   end
 
   def type
-    @type = 'player'
+    @type = 'dealer'
   end
 end

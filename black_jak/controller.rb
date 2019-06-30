@@ -9,23 +9,6 @@ class Controller
     @user = User.new
   end
 
-  def enter_user_name
-    puts 'Введите свое имя'
-    name = gets.chomp.capitalize
-    @user.name = name
-    puts "Привет, #{name}, сыграем? Ставим по #{@money.bet}"
-  end
-
-  def user_cards
-    @user.cards << @desk.cards.shift(2)
-    puts 'Ваши карты:'
-    @user.cards.map do |card|
-      card.map do |item|
-        puts "#{item[0]} #{item[1]}"
-      end
-    end
-  end
-
   def dealer_cards
     @dealer.cards << @desk.cards.shift(2)
     puts 'Карты дилера:'
@@ -37,12 +20,14 @@ class Controller
   end
 
   def start
-    enter_user_name
+    @interface.enter_user_name
+    @desk.cards.shuffle
     distribution
   end
 
   def distribution
-    user_cards
-    dealer_cards
+    @user.cards << @desk.cards.shift(2)
+    @dealer.cards << @desk.cards.shift(2)
+    @interface.puts_cards(@user.cards)
   end
 end
