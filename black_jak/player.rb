@@ -3,6 +3,6 @@ class Player
 
   def initialize
     @cards = []
-    @points = 0
+    #@points = 0
   end
 end

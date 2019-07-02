@@ -21,5 +21,13 @@ class Controller
     @dealer.cards << @desk.cards.shift(2)
     @interface.puts_user_cards(@user.cards)
     @interface.puts_dealer_cards(@dealer.cards)
+    @money.bet_money
+    #puts @money.user_money
+    user_step
+  end
+
+  def user_step
+     command = @interface.select_command(@user.cards)
+     puts command
   end
 end

@@ -22,4 +22,12 @@ class Interface
     puts 'Карты дилера:'
     array.first.size.times{ puts '*' }
   end
+
+  def select_command(array)
+    puts 'Выберите команду'
+    commands = %w[Пропустить Открыть_карту]
+    commands << 'Добавить_карту' if array.size == 1
+    commands.each_with_index { |cmd, key| puts "#{key}: #{cmd}" }
+    command = gets.chomp.to_i
+  end
 end
