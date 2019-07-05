@@ -23,11 +23,17 @@ class Interface
     array.first.size.times{ puts '*' }
   end
 
-  def select_command(array)
+  def puts_choose_command
     puts 'Выберите команду'
-    commands = %w[Пропустить Открыть_карту]
-    commands << 'Добавить_карту' if array.size == 1
-    commands.each_with_index { |cmd, key| puts "#{key}: #{cmd}" }
+  end
+
+  def commands_list(array)
+    @commands = %w[Пропустить Открыть_карту]
+    @commands << 'Добавить_карту' if array.size == 1
+  end
+
+  def choose_command
+    @commands.each_with_index { |cmd, key| puts "#{key}: #{cmd}" }
     command = gets.chomp.to_i
   end
 end

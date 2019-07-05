@@ -22,12 +22,32 @@ class Controller
     @interface.puts_user_cards(@user.cards)
     @interface.puts_dealer_cards(@dealer.cards)
     @money.bet_money
-    #puts @money.user_money
+    puts @money.user_money
     user_step
   end
 
   def user_step
-     command = @interface.select_command(@user.cards)
-     puts command
+    @interface.puts_choose_command
+    loop do
+      commands = @interface.commands_list(@user.cards)
+      command = @interface.choose_command
+      case command
+      when commands.index('Пропустить') then miss
+      when commands.index('Открыть_карту') then open
+      when commands.index('Добавить_карту') then add
+      end
+    end
+  end
+
+  def miss
+    puts 'miss'
+  end
+
+  def open
+    puts 'open'
+  end
+
+  def add
+    puts 'add'
   end
 end
