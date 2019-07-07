@@ -8,6 +8,32 @@ class Controller
     @interface = Interface.new
   end
 
+  def value_cards
+    @user.cards.first.map do |item|
+      item.last
+    end
+  end
+
+  def points_cards
+    value_cards.map do |item|
+      if item !~ /\w/
+        item.to_i
+      elsif item !~ /A/
+        item = 10
+      else
+        item = 11
+      end
+    end
+  end
+
+  def sum_cards
+    if points_cards.include?(11) & (points_cards.sum > 21)
+      points_cards.sum -= 10
+    else
+      points_cards.sum
+    end
+  end
+
   def start
     @user = User.new
     @user.name = @interface.enter_user_name
@@ -32,22 +58,30 @@ class Controller
       commands = @interface.commands_list(@user.cards)
       command = @interface.choose_command
       case command
-      when commands.index('Пропустить') then miss
+      when commands.index('Выход') then break
+      when commands.index('Пропустить') then dealer_step
       when commands.index('Открыть_карту') then open
       when commands.index('Добавить_карту') then add
       end
     end
   end
 
-  def miss
-    puts 'miss'
+  def dealer_step
+    puts 'dealer_step'
+    user_step
   end
 
   def open
     puts 'open'
+    puts value_cards
+    puts points_cards
+    sum_cards
+    puts sum_cards
+    user_step
   end
 
   def add
     puts 'add'
+    start
   end
 end

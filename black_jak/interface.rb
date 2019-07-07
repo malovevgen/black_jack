@@ -11,10 +11,8 @@ class Interface
 
   def puts_user_cards(array)
     puts 'Ваши карты:'
-    array.map do |items|
-      items.map do |item|
-        puts "#{item[0]} #{item[1]}"
-      end
+    array.first.map do |item|
+      puts "#{item[0]} #{item[1]}"
     end
   end
 
@@ -28,7 +26,7 @@ class Interface
   end
 
   def commands_list(array)
-    @commands = %w[Пропустить Открыть_карту]
+    @commands = %w[Выход Пропустить Открыть_карту]
     @commands << 'Добавить_карту' if array.size == 1
   end
 
