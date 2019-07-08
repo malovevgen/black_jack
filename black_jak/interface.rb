@@ -9,16 +9,13 @@ class Interface
     puts "Привет, #{@name}, сыграем?"
   end
 
-  def puts_user_cards(array)
+  def puts_players_cards(user_array, dealer_array)
     puts 'Ваши карты:'
-    array.first.map do |item|
+    user_array.first.map do |item|
       puts "#{item[0]} #{item[1]}"
     end
-  end
-
-  def puts_dealer_cards(array)
     puts 'Карты дилера:'
-    array.first.size.times{ puts '*' }
+    dealer_array.first.size.times { puts '*' }
   end
 
   def puts_choose_command

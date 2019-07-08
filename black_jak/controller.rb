@@ -8,32 +8,6 @@ class Controller
     @interface = Interface.new
   end
 
-  def value_cards
-    @user.cards.first.map do |item|
-      item.last
-    end
-  end
-
-  def points_cards
-    value_cards.map do |item|
-      if item !~ /\w/
-        item.to_i
-      elsif item !~ /A/
-        item = 10
-      else
-        item = 11
-      end
-    end
-  end
-
-  def sum_cards
-    if points_cards.include?(11) & (points_cards.sum > 21)
-      points_cards.sum -= 10
-    else
-      points_cards.sum
-    end
-  end
-
   def start
     @user = User.new
     @user.name = @interface.enter_user_name
@@ -45,8 +19,7 @@ class Controller
   def distribution
     @user.cards << @desk.cards.shift(2)
     @dealer.cards << @desk.cards.shift(2)
-    @interface.puts_user_cards(@user.cards)
-    @interface.puts_dealer_cards(@dealer.cards)
+    @interface.puts_players_cards(@user.cards, @dealer.cards)
     @money.bet_money
     puts @money.user_money
     user_step
@@ -73,15 +46,18 @@ class Controller
 
   def open
     puts 'open'
-    puts value_cards
-    puts points_cards
-    sum_cards
-    puts sum_cards
+    @user.sum_cards
+    puts @user.sum_cards
+    @dealer.sum_cards
+    puts @dealer.sum_cards
     user_step
   end
 
   def add
     puts 'add'
-    start
+    @user.cards << @desk.cards.shift
+    puts @user.cards
+    @interface.puts_players_cards(@user.cards, @dealer.cards)
+    user_step
   end
 end
