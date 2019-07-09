@@ -6,7 +6,7 @@ class Player
   end
 
   def value_cards
-    @cards.first.map(&:last)
+    @cards.map(&:last)
   end
 
   def points_cards

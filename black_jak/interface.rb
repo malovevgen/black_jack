@@ -11,7 +11,7 @@ class Interface
 
   def puts_players_cards(user_array, dealer_array)
     puts 'Ваши карты:'
-    user_array.first.map do |item|
+    user_array.map do |item|
       puts "#{item[0]} #{item[1]}"
     end
     puts 'Карты дилера:'
@@ -23,8 +23,11 @@ class Interface
   end
 
   def commands_list(array)
-    @commands = %w[Выход Пропустить Открыть_карту]
-    @commands << 'Добавить_карту' if array.size == 1
+    if array.size == 2
+      @commands = %w[Выход Пропустить Открыть_карту Добавить_карту]
+    else
+      @commands = %w[Выход Пропустить Открыть_карту]
+    end
   end
 
   def choose_command

@@ -17,8 +17,8 @@ class Controller
   end
 
   def distribution
-    @user.cards << @desk.cards.shift(2)
-    @dealer.cards << @desk.cards.shift(2)
+    2.times { @user.cards << @desk.cards.shift }
+    2.times { @dealer.cards << @desk.cards.shift }
     @interface.puts_players_cards(@user.cards, @dealer.cards)
     @money.bet_money
     puts @money.user_money
