@@ -17,11 +17,17 @@ class Money
   end
 
   def take_money(player)
-    @bank_money -= 20
+    @bank_money -= 2 * @bet
     if player.type == 'user'
-      @user_money += 20
+      @user_money += 2 * @bet
     else
-      @dealer_money += 20
+      @dealer_money += 2 * @bet
     end
+  end
+
+  def draw
+    @bank_money -= 2 * @bet
+    @user_money += @bet
+    @dealer_money += @bet
   end
 end

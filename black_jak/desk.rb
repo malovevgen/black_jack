@@ -7,10 +7,4 @@ class Desk
     desk_cards = suit.product(value)
     @cards = desk_cards.shuffle
   end
-
-  
-
-  #def initial_distribution
-    #@cards.shift(4)
-  #end
 end

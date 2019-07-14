@@ -22,11 +22,12 @@ class Player
   end
 
   def sum_cards
-    if points_cards.include?(11) & (points_cards.sum > 21)
-      points_cards.sum -= 10
-      points_cards.sum -= 10 if points_cards_sum > 21
+    if points_cards.sum == 32
+      sum_cards = points_cards.sum - 20
+    elsif points_cards.include?(11) && (points_cards.sum > 21)
+      sum_cards = points_cards.sum - 10
     else
-      points_cards.sum
+      sum_cards = points_cards.sum
     end
   end
 
