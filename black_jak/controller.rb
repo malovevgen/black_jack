@@ -3,8 +3,8 @@ class Controller
 
   def initialize
     @dealer = Dealer.new
-    @money = Money.new
-    @desk = Desk.new
+    @bank = Bank.new
+    @deck = Deck.new
     @interface = Interface.new
   end
 
@@ -12,16 +12,16 @@ class Controller
     @user = User.new
     @user.name = @interface.enter_user_name
     @interface.greeting
-    @desk.cards.shuffle
+    @deck.cards.shuffle
     distribution
   end
 
   def distribution
     @user.cards = []
     @dealer.cards = []
-    2.times { @user.cards << @desk.cards.shift }
-    2.times { @dealer.cards << @desk.cards.shift }
-    @money.bet_money
+    2.times { @user.cards << @deck.cards.shift }
+    2.times { @dealer.cards << @deck.cards.shift }
+    @bank.bet_money
     user_step
   end
 
@@ -49,7 +49,7 @@ class Controller
     if @dealer.sum_cards >= 17
       user_step
     else
-      @dealer.cards << @desk.cards.shift
+      @dealer.cards << @deck.cards.shift
       open if @user.cards.size == 3
     end
     user_step
@@ -69,27 +69,27 @@ class Controller
   end
 
   def add
-    @user.cards << @desk.cards.shift
+    @user.cards << @deck.cards.shift
     @interface.puts_players_cards(@user.cards, @dealer.cards)
     open if @dealer.cards.size == 3 
     dealer_step
   end
 
   def draw
-    @money.draw
-    @interface.puts_draw(@money.user_money)
+    @bank.draw
+    @interface.puts_draw(@bank.user_money)
     request_to_continue
   end
 
   def winner_is_user
-    @money.take_money(@user)
-    @interface.puts_winner_is_user(@money.user_money)
+    @bank.take_money(@user)
+    @interface.puts_winner_is_user(@bank.user_money)
     request_to_continue
   end
 
   def winner_is_dealer
-    @money.take_money(@dealer)
-    @interface.puts_winner_is_dealer(@money.user_money)
+    @bank.take_money(@dealer)
+    @interface.puts_winner_is_dealer(@bank.user_money)
     request_to_continue
   end
 

@@ -1,4 +1,4 @@
-class Money
+class Bank
   attr_accessor :user_money, :dealer_money, :bank_money, :bet
 
   def initialize
