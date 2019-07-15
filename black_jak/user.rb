@@ -9,4 +9,3 @@ class User < Player
     @type = 'user'
   end
 end
-user = User.new

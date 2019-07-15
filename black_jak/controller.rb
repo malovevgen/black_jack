@@ -39,7 +39,7 @@ class Controller
     menu(commands) do |all_commands, current_command|
       case current_command
       when all_commands.index('Пропустить') then dealer_step
-      when all_commands.index('Открыть_карту') then open
+      when all_commands.index('Открыть_карту') then discover
       when all_commands.index('Добавить_карту') then add
       end
     end
@@ -50,12 +50,12 @@ class Controller
       user_step
     else
       @dealer.cards << @deck.cards.shift
-      open if @user.cards.size == 3
+      discover if @user.cards.size == 3
     end
     user_step
   end
 
-  def open
+  def discover
     @user.sum_cards
     @dealer.sum_cards
     @interface.puts_open_cards(@user.cards, @dealer.cards)
@@ -71,7 +71,7 @@ class Controller
   def add
     @user.cards << @deck.cards.shift
     @interface.puts_players_cards(@user.cards, @dealer.cards)
-    open if @dealer.cards.size == 3 
+    discover if @dealer.cards.size == 3
     dealer_step
   end
 
