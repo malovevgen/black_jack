@@ -6,5 +6,6 @@ require_relative 'dealer'
 require_relative 'user'
 require_relative 'interface'
 #require_relative 'card'
-
-Controller.new.start
+require_relative 'game'
+#Controller.new.start
+Game.new.start
