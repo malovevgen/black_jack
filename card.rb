@@ -1,4 +1,18 @@
 class Card
-  VALUE = [*(2..10)] + %w { J, Q, K, A }
-  SUIT = ["\u2660", "\u2663", "\u2665", "\u2666"].freeze
+  attr_accessor :value, :suit
+
+  def initialize(value, suit)
+    self.value = value
+    self.suit = suit
+  end
+
+  def points
+    if value =~ /\d+/
+      value.to_i
+    elsif value == 'A'
+      11
+    else
+      10
+    end
+  end
 end
