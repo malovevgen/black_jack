@@ -6,4 +6,8 @@ class Dealer  < Player
   def type
     @type = 'dealer'
   end
+
+  def add_card?
+    cards
+  end
 end

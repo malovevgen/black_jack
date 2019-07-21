@@ -1,39 +1,26 @@
 class Player
-  attr_accessor :cards, :points, :type
+  attr_accessor :cards, :type
 
   def initialize
     @cards = []
   end
 
-  def value_cards
-    @cards.map(&:last)
-  end
+  def points
+    raw_points = cards.sum(&:points)
+    ace_in_cards = @cards.any? { |card| card.value == 'A' }
 
-  def points_cards
-    value_cards.map do |item|
-      if item !~ /\w/
-        item.to_i
-      elsif item !~ /A/
-        item = 10
-      else
-        item = 11
-      end
-    end
-  end
-
-  def sum_cards
-    if (points_cards.sum == 32) || ((points_cards.sum == 31) && points_cards.include?(9))
-      sum_cards = points_cards.sum - 20
-    elsif points_cards.include?(11) && (points_cards.sum > 21)
-      sum_cards = points_cards.sum - 10
+    if raw_points > 32
+      raw_points - 20
+    elsif raw_points > 21 && ace_in_cards
+      raw_points - 10
     else
-      sum_cards = points_cards.sum
+      raw_points
     end
   end
 
   def rating
     rating = 0
-    rating = 16 if sum_cards > 21
-    rating += (sum_cards - 21).abs
+    rating = 16 if points > 21
+    rating + (points - 21).abs
   end
 end

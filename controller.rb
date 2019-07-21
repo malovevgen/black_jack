@@ -1,18 +1,20 @@
+require_relative 'helper'
 class Controller
+  include Helper
+
   attr_accessor :dealer, :player
 
   def initialize
     @dealer = Dealer.new
     @bank = Bank.new
     @deck = Deck.new
-    @interface = Interface.new
   end
 
   def start
     @user = User.new
-    @user.name = @interface.enter_user_name
-    @interface.greeting
-    @deck.cards.shuffle
+    @user.name = enter_user_name
+    greeting(@user.name)
+
     distribution
   end
 
@@ -22,20 +24,13 @@ class Controller
     2.times { @user.cards << @deck.cards.shift }
     2.times { @dealer.cards << @deck.cards.shift }
     @bank.bet_money
+
     user_step
   end
 
-  def menu(commands)
-    @interface.puts_choose_command
-    command = @interface.choose_command(commands)
-    loop do
-      yield(commands, command)
-    end
-  end
-
   def user_step
-    @interface.puts_hide_cards(@user.cards, @dealer.cards)
-    commands = @interface.commands_list(@user.cards)
+    puts_hide_cards(@user.cards, @dealer.cards)
+    commands = commands_list(@user.cards.size)
     menu(commands) do |all_commands, current_command|
       case current_command
       when all_commands.index('Пропустить') then dealer_step
@@ -46,19 +41,28 @@ class Controller
   end
 
   def dealer_step
-    if @dealer.sum_cards >= 17
+    if @dealer.points >= 17
       user_step
     else
       @dealer.cards << @deck.cards.shift
-      discover if @user.cards.size == 3
+      if @user.cards.size == 3
+        discover
+      else
+        user_step
+      end
     end
-    user_step
+  end
+
+  def menu(commands)
+    puts_choose_command
+    command = choose_command(commands)
+    loop do
+      yield(commands, command)
+    end
   end
 
   def discover
-    @user.sum_cards
-    @dealer.sum_cards
-    @interface.puts_open_cards(@user.cards, @dealer.cards)
+    puts_open_cards(@user.cards, @dealer.cards)
     if @user.rating == @dealer.rating
       draw
     elsif @user.rating < @dealer.rating
@@ -70,32 +74,32 @@ class Controller
 
   def add
     @user.cards << @deck.cards.shift
-    @interface.puts_players_cards(@user.cards, @dealer.cards)
+    puts_hide_cards(@user.cards, @dealer.cards)
     discover if @dealer.cards.size == 3
     dealer_step
   end
 
   def draw
     @bank.draw
-    @interface.puts_draw(@bank.user_money)
+    puts_draw(@user.points, @dealer.points, @bank.user_money, @bank.dealer_money)
     request_to_continue
   end
 
   def winner_is_user
     @bank.take_money(@user)
-    @interface.puts_winner_is_user(@bank.user_money)
+    puts_winner_is_user(@user.name, @user.points, @dealer.points, @bank.user_money, @bank.dealer_money)
     request_to_continue
   end
 
   def winner_is_dealer
     @bank.take_money(@dealer)
-    @interface.puts_winner_is_dealer(@bank.user_money)
+    puts_winner_is_dealer(@user.name, @user.points, @dealer.points, @bank.user_money, @bank.dealer_money)
     request_to_continue
   end
 
   def request_to_continue
-    @interface.puts_request_to_continue
-    commands = @interface.commands_list_request
+    puts_request_to_continue
+    commands = commands_list_request
     menu(commands) do |all_commands, current_command|
       case current_command
       when all_commands.index('Выход') then abort
