@@ -9,25 +9,25 @@ class Bank
   end
 
   def bet_money
-    if @user_money >= @bet && @dealer_money >= @bet
-      @bank_money += 2 * @bet
-      @user_money -= @bet
-      @dealer_money -= @bet
-    end
+    raise 'Not enough money' if @user_money < @bet || @dealer_money < @bet
+
+    @user_money -= @bet
+    @dealer_money -= @bet
+    @bank_money += 2 * @bet
   end
 
   def take_money(player)
-    @bank_money -= 2 * @bet
     if player.type == 'user'
-      @user_money += 2 * @bet
+      @user_money += @bank_money
     else
-      @dealer_money += 2 * @bet
+      @dealer_money += @bank_money
     end
+    @bank_money = 0
   end
 
   def draw
-    @bank_money -= 2 * @bet
     @user_money += @bet
     @dealer_money += @bet
+    @bank_money = 0
   end
 end
