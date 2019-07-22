@@ -1,5 +1,5 @@
-require_relative 'controller'
 require_relative 'helper'
+require_relative 'controller'
 
 require_relative 'bank'
 require_relative 'player' # parent class for dealer and user
