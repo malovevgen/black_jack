@@ -6,6 +6,6 @@ class User < Player
   end
 
   def type
-    @type = 'user'
+    'user'
   end
 end
