@@ -31,11 +31,18 @@ class Interface
 
   def distribution
     @game.distribution
+    game_status
   end
 
   def choose_action(actions)
     actions.each_with_index { |act, key| puts "#{key}: #{act}" }
     gets.chomp.to_i
+  end
+
+  def game_status
+    puts @game.status
+    puts @game.user.cards
+    puts @game.actions
   end
 
 end
