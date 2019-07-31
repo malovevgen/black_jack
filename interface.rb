@@ -1,6 +1,8 @@
 class Interface
+  AVAILABLE = {discover: 'Открыть', dealer_step: 'Пропустить', add: 'Добавить'}
   def initialize(game)
     @game = game
+    @hash_menu = {}
   end
 
   def enter_user_name
@@ -38,6 +40,18 @@ class Interface
     puts_player_cards(dealer_array)
   end
 
+  def create_menu
+    @array_menu = @game.actions.each { |e| @hash_menu.store(e, AVAILABLE[e]) }
+    @array_menu = @hash_menu.values
+  end
+
+  def choose_command(commands)
+    commands.each_with_index { |cmd, key| puts "#{key}: #{cmd}" }
+    gets.chomp.to_i
+  end
+
+
+
   def start
     @game.user.name = enter_user_name
     greeting(@game.user.name)
@@ -61,6 +75,12 @@ class Interface
 
   def user_step
     puts_hide_cards(@game.user.cards, @game.dealer.cards)
+    create_menu
+    command = choose_command(@array_menu)
+    
+    puts @array_menu[command]
+
+    #puts @array_menu
     #commands = commands_list(@game.user.cards.size)
   end
 
