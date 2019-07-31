@@ -41,8 +41,8 @@ class Interface
   end
 
   def create_menu
-    @array_menu = @game.actions.each { |e| @hash_menu.store(e, AVAILABLE[e]) }
-    @array_menu = @hash_menu.values
+    @game.actions.each { |e| @hash_menu.store(AVAILABLE[e], e) }
+    @array_menu = @hash_menu.keys
   end
 
   def choose_command(commands)
@@ -76,9 +76,11 @@ class Interface
   def user_step
     puts_hide_cards(@game.user.cards, @game.dealer.cards)
     create_menu
-    command = choose_command(@array_menu)
-    
-    puts @array_menu[command]
+    command_index = choose_command(@array_menu)
+    command = @array_menu[command_index]
+    puts command
+    key = @hash_menu[command]
+    puts key
 
     #puts @array_menu
     #commands = commands_list(@game.user.cards.size)
