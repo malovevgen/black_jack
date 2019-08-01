@@ -1,8 +1,8 @@
 class Game
-  ACTIONS = { distribution: @distribution, puts_evrithing: @puts_evrithing }.freeze
-  attr_accessor :user, :dealer
+  ACTIONS = { distribution: @distribution, discover: @discover, dealer_step: @dealer_step, add: @add }.freeze
+  attr_accessor :user, :dealer, :key
   attr_reader :status, :actions
-  attr_writer :value
+  #attr_writer :value
 
   def initialize(user)
     @user = user
@@ -29,10 +29,11 @@ class Game
       end
       #(@actions << :add) if @user.cards.size < 3
     else @status == :puts_evrithing
-    
   end
 
-  def selector(value)
+  def selector(key)
+    actions = { distribution: @distribution, discover: @discover, dealer_step: @dealer_step, add: @add }
+    actions[key]
   end
 
     #ACTIONS[puts_evrithing]
@@ -43,14 +44,14 @@ class Game
   end
 
   def discover
-    puts 'discover'
+    puts 'you in discover'
   end
 
   def dealer_step
-    puts 'dealer_step'
+    puts 'you in dealer_step'
   end
 
   def add
-    puts 'add'
+    puts 'you in add'
   end
 end

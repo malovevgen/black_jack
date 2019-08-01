@@ -1,5 +1,6 @@
 class Interface
   AVAILABLE = {discover: 'Открыть', dealer_step: 'Пропустить', add: 'Добавить'}
+  attr_accessor :key
   def initialize(game)
     @game = game
     @hash_menu = {}
@@ -77,11 +78,9 @@ class Interface
     puts_hide_cards(@game.user.cards, @game.dealer.cards)
     create_menu
     command_index = choose_command(@array_menu)
-    command = @array_menu[command_index]
-    puts command
-    key = @hash_menu[command]
-    puts key
-
+    key = @hash_menu[@array_menu[command_index]]
+    @game.selector(key)
+  
     #puts @array_menu
     #commands = commands_list(@game.user.cards.size)
   end
