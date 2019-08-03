@@ -1,6 +1,6 @@
 class Game
-  attr_accessor :user, :dealer, :key
-  attr_reader :status, :actions
+  attr_accessor :user, :dealer, :key, :status
+  attr_reader :actions
 
   def initialize(user)
     @user = user
@@ -25,8 +25,8 @@ class Game
       else
         @actions = [:discover, :dealer_step, :add]
       end
-      #(@actions << :add) if @user.cards.size < 3
     else @status == :puts_evrithing
+    end
   end
 
   def selector(key)
@@ -39,19 +39,26 @@ class Game
     end
   end
 
-    #ACTIONS[puts_evrithing]
-  end
-
-  def puts_evrithing
-    puts 'puts_evrithing'
-  end
-
   def discover
     puts "you're in discover"
   end
 
+  def user_step
+    @status = :user_step
+    puts "you're in user_step"
+  end
+
   def dealer_step
-    puts "you're in dealer_step"
+    if @dealer.points >= 17
+      user_step
+    else
+      @dealer.cards << @deck.cards.shift
+      if @user.cards.size == 3
+        discover
+      else
+        user_step
+      end
+    end
   end
 
   def add

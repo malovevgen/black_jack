@@ -5,7 +5,6 @@ class Interface
     @hash_menu = {}
   end
 
- # N = { distribution: @game.distribution, discover: @game.discover, dealer_step: @game.dealer_step, add: @game.add }
   attr_accessor :key
 
 
@@ -54,26 +53,14 @@ class Interface
     gets.chomp.to_i
   end
 
-
-
   def start
     @game.user.name = enter_user_name
     greeting(@game.user.name)
     distribution
-    #case game.status
-    #when :initialized
-      #game.distribution
-    #when :distributed
-      #choose_action(game.actions)
-      #game.send(action)
-    #end
-    #game.status
-    #game.actions
   end
 
   def distribution
     @game.distribution
-    #game_status
     user_step
   end
 
@@ -83,16 +70,24 @@ class Interface
     command_index = choose_command(@array_menu)
     key = @hash_menu[@array_menu[command_index]]
     @game.selector(key)
+    selector(@game.status)
   end
 
-  def choose_action(actions)
-    actions.each_with_index { |act, key| puts "#{key}: #{act}" }
-    gets.chomp.to_i
+  def selector(key)
+    if key == :discover
+      discover
+    elsif key == :add
+      add
+    elsif key == :user_step
+      user_step
+    end
   end
 
-  def game_status
-    puts @game.status
-    puts @game.user.cards
-    puts @game.actions
+  def discover
+    puts "you're in interface.discover"
+  end
+
+  def add
+    puts "you're in interface.add"
   end
 end
