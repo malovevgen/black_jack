@@ -1,8 +1,6 @@
 class Game
-  ACTIONS = { distribution: @distribution, discover: @discover, dealer_step: @dealer_step, add: @add }.freeze
   attr_accessor :user, :dealer, :key
   attr_reader :status, :actions
-  #attr_writer :value
 
   def initialize(user)
     @user = user
@@ -32,8 +30,13 @@ class Game
   end
 
   def selector(key)
-    actions = { distribution: @distribution, discover: @discover, dealer_step: @dealer_step, add: @add }
-    actions[key]
+    if key == :discover
+      discover
+    elsif key == :dealer_step
+      dealer_step
+    elsif key == :add
+      add
+    end
   end
 
     #ACTIONS[puts_evrithing]
@@ -44,14 +47,14 @@ class Game
   end
 
   def discover
-    puts 'you in discover'
+    puts "you're in discover"
   end
 
   def dealer_step
-    puts 'you in dealer_step'
+    puts "you're in dealer_step"
   end
 
   def add
-    puts 'you in add'
+    puts "you're in add"
   end
 end

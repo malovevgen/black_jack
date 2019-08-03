@@ -1,10 +1,13 @@
 class Interface
   AVAILABLE = {discover: 'Открыть', dealer_step: 'Пропустить', add: 'Добавить'}
-  attr_accessor :key
   def initialize(game)
     @game = game
     @hash_menu = {}
   end
+
+ # N = { distribution: @game.distribution, discover: @game.discover, dealer_step: @game.dealer_step, add: @game.add }
+  attr_accessor :key
+
 
   def enter_user_name
     puts 'Введите свое имя'
@@ -80,9 +83,6 @@ class Interface
     command_index = choose_command(@array_menu)
     key = @hash_menu[@array_menu[command_index]]
     @game.selector(key)
-  
-    #puts @array_menu
-    #commands = commands_list(@game.user.cards.size)
   end
 
   def choose_action(actions)
@@ -95,5 +95,4 @@ class Interface
     puts @game.user.cards
     puts @game.actions
   end
-
 end
