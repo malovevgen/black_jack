@@ -44,6 +44,8 @@ class Interface
   end
 
   def create_menu
+    @hash_menu = {}
+    @game.available
     @game.actions.each { |e| @hash_menu.store(AVAILABLE[e], e) }
     @array_menu = @hash_menu.keys
   end
@@ -85,9 +87,13 @@ class Interface
 
   def discover
     puts "you're in interface.discover"
+    @game.discover
   end
 
   def add
     puts "you're in interface.add"
+    puts @dealer.points
+    @game.add
+    selector(@game.status)
   end
 end
