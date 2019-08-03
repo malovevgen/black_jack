@@ -7,7 +7,7 @@ class Game
     @dealer = Dealer.new
     @bank = Bank.new
     @deck = Deck.new
-    @actions = [@distribution]
+    #@actions = [@distribution]
   end
 
   def distribution
@@ -30,11 +30,6 @@ class Game
 
   def selector(key)
     send(key)
-  end
-
-  def discover
-    @status = :discover
-    puts "you're in discover"
   end
 
   def user_step
@@ -63,4 +58,29 @@ class Game
     discover if @dealer.cards.size == 3
     dealer_step
   end
+
+  def discover
+    puts "you're in discover"
+    if @user.rating == @dealer.rating
+      @status = :draw
+      @bank.draw
+    elsif @user.rating < @dealer.rating
+      @status = :winner_is_user
+      @bank.take_money(@user)
+    else
+      @status = :winner_is_dealer
+      @bank.take_money(@dealer)
+    end
+  end
+
+  #def request_to_continue
+    #puts_request_to_continue
+    #commands = commands_list_request
+    #menu(commands) do |all_commands, current_command|
+      #case current_command
+      #when all_commands.index('Выход') then abort
+      #when all_commands.index('Продолжим') then distribution
+      #end
+    #end
+  #end
 end

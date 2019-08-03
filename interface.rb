@@ -50,12 +50,32 @@ class Interface
     @game.actions.each do |e|
       @menu << AVAILABLE[e]
       @keys << e
-    end 
+    end
   end
 
   def choose_command(commands)
     commands.each_with_index { |cmd, key| puts "#{key}: #{cmd}" }
     gets.chomp.to_i
+  end
+
+  def result_of_game
+    puts "Ваши очки: #{@game.user.points}, очки дилера: #{@game.dealer.points}"
+    puts "Ваш текущий счет: #{@game.bank.user_money}, текущий счет дилера: #{@game.bank.dealer_money}"
+  end
+
+  def draw
+    puts 'Ничья'
+    result_of_game
+  end
+
+  def winner_is_user
+    puts " #{@game.user.name}, Вы выиграли,"
+    result_of_game
+  end
+
+  def winner_is_dealer
+    puts " #{@game.user.name}, Вы выиграли,"
+    result_of_game
   end
 
   def start
@@ -75,18 +95,13 @@ class Interface
   end
 
   def selector(key)
-    if key == :discover
-      discover
-    elsif key == :add
-      add
-    elsif key == :user_step
-      user_step
-    end
+    send(key)
   end
 
   def discover
     puts "you're in interface.discover"
-    #@game.discover
+    puts_open_cards(@game.user.cards, @game.dealer.cards)
+    selector(@game.status)
   end
 
   def add
