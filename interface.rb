@@ -44,10 +44,13 @@ class Interface
   end
 
   def create_menu
-    @hash_menu = {}
+    @menu = []
+    @keys = []
     @game.available
-    @game.actions.each { |e| @hash_menu.store(AVAILABLE[e], e) }
-    @array_menu = @hash_menu.keys
+    @game.actions.each do |e|
+      @menu << AVAILABLE[e]
+      @keys << e
+    end 
   end
 
   def choose_command(commands)
@@ -58,10 +61,6 @@ class Interface
   def start
     @game.user.name = enter_user_name
     greeting(@game.user.name)
-    distribution
-  end
-
-  def distribution
     @game.distribution
     user_step
   end
@@ -69,8 +68,8 @@ class Interface
   def user_step
     puts_hide_cards(@game.user.cards, @game.dealer.cards)
     create_menu
-    command_index = choose_command(@array_menu)
-    key = @hash_menu[@array_menu[command_index]]
+    command_index = choose_command(@menu)
+    key = @keys[command_index]
     @game.selector(key)
     selector(@game.status)
   end
@@ -87,7 +86,7 @@ class Interface
 
   def discover
     puts "you're in interface.discover"
-    @game.discover
+    #@game.discover
   end
 
   def add

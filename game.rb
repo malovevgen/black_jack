@@ -15,7 +15,6 @@ class Game
     2.times { @dealer.cards << @deck.cards.shift }
     @bank.bet_money
     @status = :distributed
-    #available
   end
 
   def available
@@ -30,13 +29,7 @@ class Game
   end
 
   def selector(key)
-    if key == :discover
-      discover
-    elsif key == :dealer_step
-      dealer_step
-    elsif key == :add
-      add
-    end
+    send(key)
   end
 
   def discover
@@ -50,6 +43,7 @@ class Game
   end
 
   def dealer_step
+    puts "you're in dealer_step"
     if @dealer.points >= 17
       user_step
     else
@@ -64,8 +58,6 @@ class Game
 
   def add
     @status = :add
-    available
-    puts available
     puts "you're in add"
     @user.cards << @deck.cards.shift
     discover if @dealer.cards.size == 3
