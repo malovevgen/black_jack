@@ -18,14 +18,15 @@ class Game
   end
 
   def available
-    #if @status == :distributed
+    if @status == :user_step
       if @user.cards.size > 2
         @actions =  [:discover, :dealer_step]
       else
         @actions = [:discover, :dealer_step, :add]
       end
-    #else @status == :puts_evrithing
-    #end
+    else
+      @actions = [:continue, :abort]
+    end
   end
 
   def selector(key)
@@ -55,8 +56,11 @@ class Game
     @status = :add
     puts "you're in add"
     @user.cards << @deck.cards.shift
-    discover if @dealer.cards.size == 3
-    dealer_step
+    if @dealer.cards.size == 3
+      discover
+    else
+      dealer_step
+    end
   end
 
   def discover

@@ -1,5 +1,5 @@
 class Interface
-  AVAILABLE = {discover: 'Открыть', dealer_step: 'Пропустить', add: 'Добавить'}
+  AVAILABLE = {discover: 'Открыть', dealer_step: 'Пропустить', add: 'Добавить', continue: 'Продолжим', abort: 'Выход'}
   def initialize(game)
     @game = game
     @hash_menu = {}
@@ -74,7 +74,7 @@ class Interface
   end
 
   def winner_is_dealer
-    puts " #{@game.user.name}, Вы выиграли,"
+    puts " #{@game.user.name}, Вы проиграли,"
     result_of_game
   end
 
@@ -86,6 +86,7 @@ class Interface
   end
 
   def user_step
+    @game.status = :user_step
     puts_hide_cards(@game.user.cards, @game.dealer.cards)
     create_menu
     command_index = choose_command(@menu)
