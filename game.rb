@@ -1,6 +1,6 @@
 class Game
-  attr_accessor :user, :dealer, :key, :status
-  attr_reader :actions
+  attr_accessor :user, :dealer, :key, :status 
+  attr_reader :actions, :bank
 
   def initialize(user)
     @user = user
@@ -18,7 +18,7 @@ class Game
   end
 
   def available
-    if @status == :user_step
+    if @status == :choice_step
       if @user.cards.size > 2
         @actions =  [:discover, :dealer_step]
       else
@@ -29,25 +29,32 @@ class Game
     end
   end
 
-  def selector(key)
-    send(key)
-  end
+  #def selector(key)
+    #send(key)
+    #case key
+    #when :discover then discover
+    #when :dealer_step then dealer_step
+    #when :add then add
+    #when :continue then continue
+    #when :abort then abort
+    #end   
+  #end
 
-  def user_step
-    @status = :user_step
+  def choice_step
+    @status = :choice_step
     puts "you're in user_step"
   end
 
   def dealer_step
     puts "you're in dealer_step"
     if @dealer.points >= 17
-      user_step
+      choice_step
     else
       @dealer.cards << @deck.cards.shift
       if @user.cards.size == 3
         discover
       else
-        user_step
+        choice_step
       end
     end
   end
@@ -75,6 +82,9 @@ class Game
       @status = :winner_is_dealer
       @bank.take_money(@dealer)
     end
+    #@status = :discover
+    #@score = [@bank.user_money, @bank.dealer_money]
+    #puts @score
   end
 
   #def request_to_continue

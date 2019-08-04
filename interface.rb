@@ -59,8 +59,12 @@ class Interface
   end
 
   def result_of_game
+    puts_open_cards(@game.user.cards, @game.dealer.cards)
     puts "Ваши очки: #{@game.user.points}, очки дилера: #{@game.dealer.points}"
-    puts "Ваш текущий счет: #{@game.bank.user_money}, текущий счет дилера: #{@game.bank.dealer_money}"
+    puts "Ваш текущий счет:#{@game.bank.user_money}"
+    puts "Текущий счет дилера: #{@game.bank.dealer_money}"
+    puts "Хотите сыграть еще?"
+    choice_step
   end
 
   def draw
@@ -82,27 +86,25 @@ class Interface
     @game.user.name = enter_user_name
     greeting(@game.user.name)
     @game.distribution
-    user_step
+    puts_hide_cards(@game.user.cards, @game.dealer.cards)
+    @game.status = :choice_step    
+    choice_step
   end
 
-  def user_step
-    @game.status = :user_step
-    puts_hide_cards(@game.user.cards, @game.dealer.cards)
+  def choice_step
     create_menu
     command_index = choose_command(@menu)
     key = @keys[command_index]
-    @game.selector(key)
-    selector(@game.status)
-  end
-
-  def selector(key)
-    send(key)
+    #@game.selector(key)
+    @game.send(key)
+    send(@game.status)
   end
 
   def discover
     puts "you're in interface.discover"
-    puts_open_cards(@game.user.cards, @game.dealer.cards)
-    selector(@game.status)
+    #puts_open_cards(@game.user.cards, @game.dealer.cards)
+
+    #send(@game.status)
   end
 
   def add
