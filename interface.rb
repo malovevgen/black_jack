@@ -1,12 +1,12 @@
 class Interface
-  AVAILABLE = {discover: 'Открыть', dealer_step: 'Пропустить', add: 'Добавить', continue: 'Продолжим', abort: 'Выход'}
+  AVAILABLE = { discover: 'Открыть', dealer_step: 'Пропустить', add: 'Добавить',
+                continue: 'Продолжим', abort: 'Выход' }.freeze
+  attr_accessor :key
+
   def initialize(game)
     @game = game
     @hash_menu = {}
   end
-
-  attr_accessor :key
-
 
   def enter_user_name
     puts 'Введите свое имя'
@@ -63,7 +63,7 @@ class Interface
     puts "Ваши очки: #{@game.user.points}, очки дилера: #{@game.dealer.points}"
     puts "Ваш текущий счет:#{@game.bank.user_money}"
     puts "Текущий счет дилера: #{@game.bank.dealer_money}"
-    puts "Хотите сыграть еще?"
+    puts 'Хотите сыграть еще?'
     choice_step
   end
 
@@ -85,26 +85,22 @@ class Interface
   def start
     @game.user.name = enter_user_name
     greeting(@game.user.name)
+    distribution_step
+  end
+
+  def distribution_step
     @game.distribution
-    puts_hide_cards(@game.user.cards, @game.dealer.cards)
-    @game.status = :choice_step    
+    @game.status = :choice_step
     choice_step
   end
 
   def choice_step
+    puts_hide_cards(@game.user.cards, @game.dealer.cards) if @game.status == :choice_step
     create_menu
     command_index = choose_command(@menu)
     key = @keys[command_index]
-    #@game.selector(key)
     @game.send(key)
     send(@game.status)
-  end
-
-  def discover
-    puts "you're in interface.discover"
-    #puts_open_cards(@game.user.cards, @game.dealer.cards)
-
-    #send(@game.status)
   end
 
   def add
