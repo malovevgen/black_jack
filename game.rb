@@ -46,7 +46,6 @@ class Game
 
   def add
     @status = :add
-    puts "you're in add"
     @user.cards << @deck.cards.shift
     if @dealer.cards.size == 3
       discover
@@ -69,7 +68,6 @@ class Game
   end
 
   def continue
-    puts "you're in continue"
     @user.cards.clear
     @dealer.cards.clear
     @status = :distribution_step

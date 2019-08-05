@@ -8,8 +8,7 @@ class Player
   def points
     raw_points = cards.sum(&:points)
     ace_in_cards = @cards.any? { |card| card.value == 'A' }
-
-    if raw_points > 32
+    if raw_points > 31
       raw_points - 20
     elsif raw_points > 21 && ace_in_cards
       raw_points - 10
