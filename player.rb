@@ -10,7 +10,7 @@ class Player
     count_aces = @cards.select { |card| card.value == 'A' }.count
     if raw_points > 31 && count_aces > 1
       raw_points - 20
-    elsif raw_points > 21 && count_aces > 0
+    elsif raw_points > 21 && count_aces.positive?
       raw_points - 10
     else
       raw_points
