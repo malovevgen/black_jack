@@ -6,15 +6,12 @@ class Player
   end
 
   def points
-    raw_points = cards.sum(&:points)
-    count_aces = @cards.select { |card| card.value == 'A' }.count
-    if raw_points > 31 && count_aces > 1
-      raw_points - 20
-    elsif raw_points > 21 && count_aces.positive?
-      raw_points - 10
-    else
-      raw_points
+    raw_points = @cards.map(&:points).sum
+    count_aces = @cards.count { |card| card.value == 'A' }
+    count_aces.times do
+      raw_points -= 10 if raw_points > 21
     end
+    raw_points
   end
 
   def rating
